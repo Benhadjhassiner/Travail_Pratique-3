@@ -29,6 +29,7 @@ def actions():
     combat()
 
 #L'utilisateur choisi ce qu'il veut faire et en subi les conséquences
+#l'input est la décision prise et l'output est la série de paramètres (niveau_vie, nombre_victoires_consecutives, etc.) qui en résulte
 def combat():
     global nombre_victoires_consecutives
     global niveau_vie
@@ -92,7 +93,7 @@ def regle():
     print(regle_jeu)
     combat()
 
-#On présente à l'utilisteur un boss qu'il affrontera
+#On présente à l'utilisteur un boss qu'il affrontera lorsqu'il atteindra 3 victoires consécutives
 def boss():
     global force_adversaire
     force_adversaire = random.randint(10, 12)
@@ -101,10 +102,9 @@ def boss():
     print("Voici vos options: \nEntrez '1' si vous voulez vous enfuir, ATTENTION! Vous retomberez tout de même sur un boss. \nEntrez '2' si vous voulez le combattre. \nEntrez '3' si vous voulez mettre fin au jeu. \nEntrez '4' si vous voulez voir les règles du jeu.")
     combat()
 
+#Boucle effectuant les actions tant que l'utilisateur a plus de 0 points de vie
 while jeu == True:
     if nombre_victoires_consecutives % 3 == 0 and nombre_victoires_consecutives > 0:
         boss()
     else:
         actions()
-
-
